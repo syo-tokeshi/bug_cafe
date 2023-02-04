@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'debug'
 
 DRINKS = [
   { name: 'コーヒー', price: 300 },
@@ -20,7 +19,8 @@ def take_order(menus)
     puts "(#{i})#{menu[:name]}: #{menu[:price]}円"
   end
   print '>'
-  order_number = (gets.to_i) -1
+  # お客さんに表示するメニューの番号は1から始まるが、配列にインデックス番号でアクセスする際は、-1を行う事で正常にアクセス出来る
+  order_number = gets.to_i - 1
   puts "#{menus[order_number][:name]}(#{menus[order_number][:price]}円)ですね。"
   order_number
 end
